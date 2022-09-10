@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../../styles/main.css" />
+    <link rel="stylesheet" href="../../styles/micromodal.css" />
+
+    <!-- Insert this line above script imports  -->
+    <script>
+      if (typeof module === 'object') {
+        window.module = module
+        module = undefined
+      }
+    </script>
+
+    <!-- normal script imports etc  -->
+    <script src="../../viewscripts/lib/jquery.3.6.0.js"></script>
+    <script src="../../viewscripts/lib/micromodal.min.js"></script>
+
+    <!-- Insert this line after script imports -->
+    <script>
+      if (window.module) module = window.module
+    </script>
+  </head>
+
+  <body>
+    <section class="section">
+      <div class="container">
+        <h1 class="title">
+          Calling an API from Electron
+        </h1>
+        <div class="block">
+          <p>
+            How to make a rest request from Electron and consume an API<br />
+          </p>
+        </div>
+        <div id="change">
+          <button id="callApi" onclick="doSomething();">I am bored. What should I do?</button>
+        </div>
+        <div id="whattodo">
+        </div>
+      </div>
+    </section>
+
+    <!-- You can also require other files to run in this process -->
+    <script defer src="../../viewscripts/home/index.js"></script>
+  </body>
+</html>
